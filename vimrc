@@ -1,4 +1,4 @@
-plug#begin('~/.vim/plugged')
+call plug#begin('~/.vim/plugged')
 
 " Base modules
 Plug 'rbgrouleff/bclose.vim'
@@ -8,11 +8,12 @@ Plug 'tpope/vim-fugitive'
 Plug 'Shougo/neocomplete.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
-Plug 'powerline/powerline'
+Plug 'bling/vim-airline'
 Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'othree/vim-autocomplpop'
+Plug 'eparreno/vim-l9' | Plug 'othree/vim-autocomplpop'
+Plug 'flazz/vim-colorschemes'
 
 " Php Plugs
 Plug 'shawncplus/phpcomplete.vim'
@@ -25,7 +26,7 @@ Plug 'mxw/vim-jsx'
 Plug 'elixir-lang/vim-elixir'
 Plug 'mattreduce/vim-mix'
 
-plug#end()
+call plug#end()
 
 let mapleader = "\<Space>" 		" Map space as leader
 set nocompatible 				" Lots of fancy stuff
@@ -40,6 +41,7 @@ let g:buftabs_marker_modified = "+"
 
 "------  Generic Behavior  ------
 set list			" Show whitespace
+set listchars=tab:▸\ ,trail:·,extends:❯,precedes:❮,nbsp:×
 set tabstop=4		" Tab shown as 4 spaces
 set shiftwidth=4	" Indent 4 spaces
 set hidden			" Hide buffers instead of closing them
@@ -72,7 +74,6 @@ nnoremap J mzJ`z
 noremap H ^
 noremap L $
 vnoremap L g_
-
 
 "------  Window Navigation  ------
 " ,hljk = Move between windows
@@ -156,6 +157,9 @@ map <Leader>p :! php -l %<CR>
 au FileType php set omnifunc=phpcomplete#CompletePHP
 let g:neocomplete#enable_at_startup = 1
 
+"------  Elixir Filetype Settings  ------
+au BufNewFile,BufReadPost *.ex,*.exs set shiftwidth=4 softtabstop=4 noexpandtab
+
 "------  GUI Options  ------
 if has("gui_running")
         " Hides toolbar and scrollbars and File menu
@@ -223,7 +227,7 @@ if has("gui_running")
                 map <silent> <A-7> 7gt
                 map <silent> <A-8> 8gt
                 map <silent> <A-9> 9gt
-
+	endif
 else
         set t_Co=256
         colorscheme Mustang
