@@ -30,6 +30,7 @@ call plug#end()
 
 let mapleader = "\<Space>" 		" Map space as leader
 set nocompatible 				" Lots of fancy stuff
+set encoding=utf-8
 
 "------  Visual Options  ------
 syntax on		" Highlighting on
@@ -160,6 +161,8 @@ let g:neocomplete#enable_at_startup = 1
 "------  Elixir Filetype Settings  ------
 au BufNewFile,BufReadPost *.ex,*.exs set shiftwidth=4 softtabstop=4 noexpandtab
 
+colorscheme Tomorrow-Night
+
 "------  GUI Options  ------
 if has("gui_running")
         " Hides toolbar and scrollbars and File menu
@@ -167,7 +170,6 @@ if has("gui_running")
 
         " Highlights the current line background
         set cursorline
-        colorscheme Tomorrow-Night
 
         "Invisible character colors
         highlight NonText guifg=#4a4a59
@@ -230,7 +232,6 @@ if has("gui_running")
 	endif
 else
         set t_Co=256
-        colorscheme Mustang
         set mouse=a
 endif
 
