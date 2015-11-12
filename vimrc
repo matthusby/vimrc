@@ -12,8 +12,8 @@ Plug 'bling/vim-airline'
 Plug 'scrooloose/syntastic'
 Plug 'majutsushi/tagbar'
 Plug 'bronson/vim-trailing-whitespace'
-Plug 'eparreno/vim-l9' | Plug 'othree/vim-autocomplpop'
 Plug 'flazz/vim-colorschemes'
+Plug 'airblade/vim-gitgutter'
 
 " Php Plugs
 Plug 'shawncplus/phpcomplete.vim'
