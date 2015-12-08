@@ -51,7 +51,11 @@ filetype plugin on
 set autoindent
 set noexpandtab		" Don't expand tabs to spaces
 set wildignore=.svn,CVS,.git,*.o,*.a,*.class,*.mo,*.la,*.so,*.obj,*.swp,*.jpg,*.png,*.xpm,*.gif,node_modules/*
-
+let g:ctrlp_custom_ignore = {
+	\ 'dir': '\v[\/](\.git|node_modules|\.sass-cache|bower_components|build)$',
+	\ 'file': '\v\.(exe|so|dll)$',
+	\ 'link': 'some_bad_symbolic_links',
+	\ }
 "allow deletion of previously entered data in insert mode
 set backspace=indent,eol,start
 
@@ -159,7 +163,7 @@ au FileType php set omnifunc=phpcomplete#CompletePHP
 let g:neocomplete#enable_at_startup = 1
 
 "------  Elixir Filetype Settings  ------
-au BufNewFile,BufReadPost *.ex,*.exs set shiftwidth=4 softtabstop=4 noexpandtab
+au BufNewFile,BufReadPost *.ex,*.exs,*.eex set shiftwidth=4 softtabstop=4 noexpandtab
 
 colorscheme Tomorrow-Night
 
@@ -237,4 +241,4 @@ endif
 
 " Javascript
 let g:jsx_ext_required = 0 " Turn on react highlighting for .js files
-let g:jsx_pragma_required = 1
+"let g:jsx_pragma_required = 1
